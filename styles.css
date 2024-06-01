@@ -1,0 +1,377 @@
+
+
+
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: url(lap\ back.jpg);
+    background-size: cover;
+    backdrop-filter: blur(25px);
+    font-family: Arial, sans-serif;
+}
+
+.game-container {
+    text-align: center;
+   
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(8, 50px);
+    grid-template-rows: repeat(8, 50px);
+    gap: 2px;
+    margin-bottom: 20px;
+    border: 5px solid rgb(0, 0, 0);
+    border-radius: 10px;
+    /* box-shadow: 2px 2px 2px 2px grey; */
+    
+  
+
+}
+
+.cell {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+}
+
+.piece {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+}
+
+.player1 {
+    background-color: red;
+}
+
+.player2 {
+    background-color: blue;
+}
+
+.controls {
+    margin-bottom: 20px;
+}
+
+.timer {
+    font-size: 20px;
+    color: white;
+}
+
+button {
+    margin: 0 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.bullet-path {
+    background-color:transparent;
+    opacity: 0.7;
+}
+
+.bullet {
+    width: 10px;
+    height: 10px;
+    /* background: url(bullet\ png.png); */
+    /* background-image: url(bullet\ png.png); */
+    background-color: #000000;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 10000;
+   
+}
+
+.possible-move {
+    background-color:lightgreen;
+    cursor: pointer;
+}
+.semirecochet {
+    clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+    
+    width: 50px;
+    height: 50px;
+}
+.ricochet {
+   
+
+
+    height: 10px;
+    width: 65px;
+    rotate: 45deg;
+    border-radius: 10px;
+}
+#move-rotate-popup,
+#rotate-popup {
+    display: none;
+    position: absolute;
+    background: wheat;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 10px;
+    z-index: 1000;
+}
+
+#move-rotate-popup button,
+#rotate-popup button {
+    display: block;
+    margin: 5px 0;
+    border-radius: 10px;
+    border: none;
+    background-color: #514949;
+    color: aliceblue;
+}
+#pause{
+    height: 45px;
+    width: 90px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    box-shadow:2px 2px 2px white ;
+    
+}
+#pause:hover{
+    color: black;
+    background-color: white;
+    box-shadow:2px 2px 2px #000000;
+}
+#resume{
+    height: 45px;
+    width: 90px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    box-shadow:2px 2px 2px white ;
+    
+}
+#resume:hover{
+    color: black;
+    background-color: white;
+    box-shadow:2px 2px 2px #000000;
+}
+#reset{
+    height: 45px;
+    width: 90px;
+    color: white;
+    background-color: black;
+    border: none;
+    border-radius: 20px;
+    box-shadow:2px 2px 2px white ;
+    
+}
+#reset:hover{
+    color: black;
+    background-color: white;
+    box-shadow:2px 2px 2px #000000;
+}
+@media screen and (max-width:400px) {
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        width: 100%;
+        margin: 0;
+        background: url(mob\ back.jpg);
+        background-size: cover;
+        backdrop-filter: blur(25px);
+        font-family: Arial, sans-serif;
+    }
+    
+    .game-container {
+        text-align: center;
+       
+    }
+    
+    .board {
+        display: grid;
+        grid-template-columns: repeat(8, 40px);
+        grid-template-rows: repeat(8, 40px);
+        gap: 2px;
+        margin-bottom: 20px;
+        margin-left: 2px;
+        border: none;
+       
+        
+      
+    
+    }
+    
+    .cell {
+        width: 40px;
+        height: 40px;
+        background: transparent;
+       border: 0.5px solid;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        
+    }
+    
+    .piece {
+        width: 90%;
+        height: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 7px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+    }
+    
+    .player1 {
+        background-color: red;
+    }
+    
+    .player2 {
+        background-color: blue;
+    }
+    
+    .controls {
+        margin-bottom: 20px;
+    }
+    
+    .timer {
+        font-size: 20px;
+        color: white;
+    }
+    
+    button {
+        margin: 0 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .bullet-path {
+        background-color:transparent;
+        opacity: 0.8;
+    }
+    
+    .bullet {
+        width: 10px;
+        height: 10px;
+        /* background: url(bullet\ png.png); */
+        /* background-image: url(bullet\ png.png); */
+        background-color: #000000;
+        border-radius: 50%;
+        position: absolute;
+        z-index: 10000;
+       
+    }
+    
+    .possible-move {
+        background-color:lightgreen;
+        cursor: pointer;
+    }
+    .semirecochet {
+        clip-path: polygon(0% 0%, 100% 0%, 0% 100%);
+        
+        width: 40px;
+        height: 40px;
+    }
+    .ricochet {
+       
+    
+    
+        height: 10px;
+        width: 65px;
+        rotate: 45deg;
+        border-radius: 10px;
+    }
+    #move-rotate-popup,
+    #rotate-popup {
+        height: 80px;
+        width: 50px;
+        display: none;
+        position: absolute;
+        background: wheat;
+        border: 1px solid black;
+        border-radius: 10px;
+        padding: 10px;
+        z-index: 1000;
+    }
+    
+    #move-rotate-popup button,
+    #rotate-popup button {
+        height: 30px;
+        width: 55px;
+        font-size: 10px;
+        display: block;
+        margin: 5px 0;
+        border-radius: 10px;
+        border: none;
+        background-color: #514949;
+        color: aliceblue;
+    }
+    #pause{
+        height: 45px;
+        width: 90px;
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 20px;
+        box-shadow:2px 2px 2px white ;
+        
+    }
+    #pause:hover{
+        color: black;
+        background-color: white;
+        box-shadow:2px 2px 2px #000000;
+    }
+    #resume{
+        height: 45px;
+        width: 90px;
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 20px;
+        box-shadow:2px 2px 2px white ;
+        
+    }
+    #resume:hover{
+        color: black;
+        background-color: white;
+        box-shadow:2px 2px 2px #000000;
+    }
+    #reset{
+        height: 45px;
+        width: 90px;
+        color: white;
+        background-color: black;
+        border: none;
+        border-radius: 20px;
+        box-shadow:2px 2px 2px white ;
+        
+    }
+    #reset:hover{
+        color: black;
+        background-color: white;
+        box-shadow:2px 2px 2px #000000;
+    }
+
+    
+}
+
+
+
